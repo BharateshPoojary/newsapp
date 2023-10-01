@@ -57,7 +57,8 @@ export default class News extends Component {
 }
   render() {
     return (
-      <>   
+      <> 
+       <div className="bg-white">  
       <div className="text-center text-4xl">TOP HEADLINES </div> 
   
       {this.state.loading && <Spinner/>} 
@@ -65,15 +66,16 @@ export default class News extends Component {
        <div className='mt-5  grid grid-cols-3 gap-3'>
       {!this.state.loading && this.state.articles.map((element)=>{
       console.log(element);
-        return <div key={element.url}  className=' border-solid border-2 border-slate-400 rounded-lg'>
-        <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url}/>
+        return <div key={element.url}  className=' border-solid border-2 border-gray-600 rounded-lg'>
+        <NewsItem title={element.title} source={element.source.name} description={element.description}   publishedAt={element.publishedAt} imageUrl={element.urlToImage} newsUrl={element.url}/>
       </div>
   })}  
   </div>
- <div className="flex justify-between mt-2">
- <button disabled={this.state.page<=1}className='h-10 w-20 pb-2 pr-3 rounded-lg bg-black text-white hover:bg-white hover:text-black hover:border-solid hover:border-2 hover:border-slate-500'onClick={this.handleprevClick}>&larr;previous</button>
- <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/this.props.pageSize)}className='h-10 w-20 rounded-lg bg-black text-white hover:bg-white hover:text-black hover:border-solid hover:border-2 hover:border-slate-500'onClick={this.handlenextClick}>Next&rarr;</button> 
- </div>  
+ <div className="flex justify-between mt-2 mb-2">
+ <button disabled={this.state.page<=1}className='h-10 w-20 pb-2 pr-3 rounded-lg bg-gray-700 text-white hover:bg-white hover:text-black hover:border-solid hover:border-2 hover:border-slate-500'onClick={this.handleprevClick}>&larr;previous</button>
+ <button disabled={this.state.page+1>Math.ceil(this.state.totalResults/this.props.pageSize)}className='h-10 w-20 rounded-lg bg-gray-700 text-white hover:bg-white hover:text-black hover:border-solid hover:border-2 hover:border-slate-500'onClick={this.handlenextClick}>Next&rarr;</button> 
+ </div> 
+ </div> 
  </>
     
     )
