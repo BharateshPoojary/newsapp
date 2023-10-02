@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-import './App.css';
 import Navbar from './components/Navbar'
 import React, { Component } from 'react'
 import News from './components/News';
@@ -24,10 +22,7 @@ const router=createBrowserRouter(createRoutesFromElements(
 ));
 
 export default class App extends Component {
-
   render() {
-
-  
     return (
       <RouterProvider router={router}/>
     )
